@@ -217,7 +217,7 @@ variables:
   action_button_hue_hold_repeat: !input action_button_hue_hold_repeat
 
 triggers:
-  - id: power-press
+  - id: power_press
     alias: Press on/off button pressed one time
     trigger: device
     device_id: !input controller
@@ -225,7 +225,7 @@ triggers:
     type: remote_button_short_press
     subtype: turn_on
 
-  - id: power-release
+  - id: power_hold_release
     alias: Release power button
     trigger: device
     device_id: !input controller
@@ -233,7 +233,7 @@ triggers:
     type: remote_button_long_release
     subtype: turn_on
 
-  - id: power-hold
+  - id: power_hold
     alias: Hold power button
     trigger: device
     device_id: !input controller
@@ -241,7 +241,7 @@ triggers:
     type: remote_button_long_press
     subtype: turn_on
 
-  - id: power-press-2x
+  - id: power_press_2
     alias: Power button pressed two times
     trigger: device
     device_id: !input controller
@@ -249,7 +249,7 @@ triggers:
     type: remote_button_double_press
     subtype: turn_on
 
-  - id: power-press-3x
+  - id: power_press_3
     alias: Power button pressed three times
     trigger: device
     device_id: !input controller
@@ -257,7 +257,7 @@ triggers:
     type: remote_button_triple_press
     subtype: turn_on
   
-  - id: power-press-4x
+  - id: power_press_4
     alias: Power button pressed four times
     trigger: device
     device_id: !input controller
@@ -265,7 +265,7 @@ triggers:
     type: remote_button_quadruple_press
     subtype: turn_on
 
-  - id: power-press-5x
+  - id: power_press_5
     alias: On/off button pressed five times
     trigger: device
     device_id: !input controller
@@ -273,7 +273,7 @@ triggers:
     type: remote_button_quintuple_press
     subtype: turn_on
   
-  - id: dim-up-press
+  - id: brightness_up_press
     alias: Dim-up button pressed one time
     trigger: device
     device_id: !input controller
@@ -281,7 +281,7 @@ triggers:
     type: remote_button_short_press
     subtype: dim_up
 
-  - id: dim-up-hold
+  - id: brightness_up_hold
     alias: Dim-up button held
     trigger: device
     device_id: !input controller
@@ -289,7 +289,7 @@ triggers:
     type: remote_button_long_press
     subtype: dim_up
 
-  - id: dim-up-release
+  - id: brightness_up_hold_release
     alias: Dim-up button released
     trigger: device
     device_id: !input controller
@@ -297,7 +297,7 @@ triggers:
     type: remote_button_long_release
     subtype: dim_up
 
-  - id: dim-up-press-2x
+  - id: brightness_up_press_2
     alias: Up button pressed two times
     trigger: device
     device_id: !input controller
@@ -305,7 +305,7 @@ triggers:
     type: remote_button_double_press
     subtype: dim_up
 
-  - id: dim-up-press-3x
+  - id: brightness_up_press_3
     alias: Dim-up button pressed three times
     trigger: device
     device_id: !input controller
@@ -313,7 +313,7 @@ triggers:
     type: remote_button_triple_press
     subtype: dim_up
 
-  - id: dim-up-press-4x
+  - id: brightness_up_press_4
     alias: Dim-up button pressed four times
     trigger: device
     device_id: !input controller
@@ -321,7 +321,7 @@ triggers:
     type: remote_button_quadruple_press
     subtype: dim_up
 
-  - id: dim-up-press-5x
+  - id: brightness_up_press_5
     alias: Dim-up button pressed five times
     trigger: device
     device_id: !input controller
@@ -329,7 +329,7 @@ triggers:
     type: remote_button_quintuple_press
     subtype: dim_up
 
-  - id: dim-down-press
+  - id: brightness_down_press
     alias: Dim-down button pressed one time
     trigger: device
     device_id: !input controller
@@ -337,7 +337,7 @@ triggers:
     type: remote_button_short_press
     subtype: dim_down
 
-  - id: dim-down-hold
+  - id: brightness_down_hold
     alias: Dim-down button held
     trigger: device
     device_id: !input controller
@@ -345,7 +345,7 @@ triggers:
     type: remote_button_long_press
     subtype: dim_down
 
-  - id: dim-down-release
+  - id: brightness_down_hold_release
     alias: Dim-down button released
     trigger: device
     device_id: !input controller
@@ -353,7 +353,7 @@ triggers:
     type: remote_button_long_release
     subtype: dim_down
 
-  - id: dim-down-press-2x
+  - id: brightness_down_press_2
     alias: Dim-down button pressed two times
     trigger: device
     device_id: !input controller
@@ -361,7 +361,7 @@ triggers:
     type: remote_button_double_press
     subtype: dim_down
 
-  - id: dim-down-press-3x
+  - id: brightness_down_press_3
     alias: Dim-down button pressed three times
     trigger: device
     device_id: !input controller
@@ -369,7 +369,7 @@ triggers:
     type: remote_button_triple_press
     subtype: dim_down
 
-  - id: dim-down-press-4x
+  - id: brightness_down_press_4
     alias: Dim-down button pressed four times
     trigger: device
     device_id: !input controller
@@ -377,7 +377,7 @@ triggers:
     type: remote_button_quadruple_press
     subtype: dim_down
 
-  - id: dim-down-press-5x
+  - id: brightness_down_press_5
     alias: Dim-down button pressed five times
     trigger: device
     device_id: !input controller
@@ -385,7 +385,7 @@ triggers:
     type: remote_button_quintuple_press
     subtype: dim_down
 
-  - id: hue-press
+  - id: hue_press
     alias: HUE button pressed one time
     trigger: device
     device_id: !input controller
@@ -393,7 +393,7 @@ triggers:
     type: remote_button_short_press
     subtype: turn_off
 
-  - id: hue-holda
+  - id: hue_hold
     alias: HUE button held
     trigger: device
     device_id: !input controller
@@ -401,7 +401,7 @@ triggers:
     type: remote_button_long_press
     subtype: turn_off
 
-  - id: hue-release
+  - id: hue_hold_release
     alias: HUE button released
     trigger: device
     device_id: !input controller
@@ -409,7 +409,7 @@ triggers:
     type: remote_button_long_release
     subtype: turn_off
 
-  - id: hue-press-2x
+  - id: hue_press_2
     alias: HUE button pressed two times
     trigger: device
     device_id: !input controller
@@ -417,7 +417,7 @@ triggers:
     type: remote_button_double_press
     subtype: turn_off
 
-  - id: hue-press-3x
+  - id: hue_press_3
     alias: HUE button pressed three times
     trigger: device
     device_id: !input controller
@@ -425,7 +425,7 @@ triggers:
     type: remote_button_triple_press
     subtype: turn_off
 
-  - id: hue-press-4x
+  - id: hue_press_4
     alias: HUE button pressed four times
     trigger: device
     device_id: !input controller
@@ -433,7 +433,7 @@ triggers:
     type: remote_button_quadruple_press
     subtype: turn_off
 
-  - id: hue-press-5x
+  - id: hue_press_5
     alias: HUE button pressed five times
     trigger: device
     device_id: !input controller
@@ -441,7 +441,7 @@ triggers:
     type: remote_button_quintuple_press
     subtype: turn_off
 
-  - id: remote-offline
+  - id: remote_offline
     alias: Remote went offline
     trigger: device
     device_id: !input controller
@@ -464,37 +464,37 @@ actions:
       - alias: If the power button was pressed only once
         conditions:
           - condition: trigger
-            id: power-press
+            id: power_press
         sequence: !input action_button_power_press1
 
       - alias: If the power button was pressed twice
         conditions:
           - condition: trigger
-            id: power-press-2x
+            id: power_press_2
         sequence: !input action_button_power_press2
 
       - alias: If the power button was pressed three times
         conditions:
           - condition: trigger
-            id: power-press-3x
+            id: power_press_3
         sequence: !input action_button_power_press3
 
       - alias: If the power button was pressed four times
         conditions:
           - condition: trigger
-            id: power-press-4x
+            id: power_press_4
         sequence: !input action_button_power_press4
 
       - alias: If the power button was pressed five times
         conditions:
           - condition: trigger
-            id: power-press-5x
+            id: power_press_5
         sequence: !input action_button_power_press5
 
       - alias: If the power button is held
         conditions:
           - condition: trigger
-            id: power-hold
+            id: power_hold
         sequence:
           - choose:
               - conditions: "{{ action_button_power_hold_repeat | bool }}"
@@ -511,37 +511,37 @@ actions:
       - alias: If the dim-up button was pressed only once
         conditions:
           - condition: trigger
-            id: dim-up-press
+            id: brightness_up_press
         sequence: !input action_button_up_press1
 
       - alias: If the dim-up button was pressed twice
         conditions:
           - condition: trigger
-            id: dim-up-press-2x
+            id: brightness_up_press_2
         sequence: !input action_button_up_press2
 
       - alias: If the dim-up button was pressed three times
         conditions:
           - condition: trigger
-            id: dim-up-press-3x
+            id: brightness_up_press_3
         sequence: !input action_button_up_press3
 
       - alias: If the dim-up button was pressed four times
         conditions:
           - condition: trigger
-            id: dim-up-press-4x
+            id: brightness_up_press_4
         sequence: !input action_button_up_press4
 
       - alias: If the dim-up button was pressed five times
         conditions:
           - condition: trigger
-            id: dim-up-press-5x
+            id: brightness_up_press_5
         sequence: !input action_button_up_press5
 
       - alias: If the dim-up button is held
         conditions:
           - condition: trigger
-            id: dim-up-hold
+            id: brightness_up_hold
         sequence:
           - choose:
               - conditions: "{{ action_button_up_hold_repeat | bool }}"
@@ -558,37 +558,37 @@ actions:
       - alias: If the dim-down button was pressed only once
         conditions:
           - condition: trigger
-            id: dim-down-press
+            id: brightness_down_press
         sequence: !input action_button_down_press1
 
       - alias: If the dim-down button was pressed twice
         conditions:
           - condition: trigger
-            id: dim-down-press-2x
+            id: brightness_down_press_2
         sequence: !input action_button_down_press2
 
       - alias: If the dim-down button was pressed three times
         conditions:
           - condition: trigger
-            id: dim-down-press-3x
+            id: brightness_down_press_3
         sequence: !input action_button_down_press3
 
       - alias: If the dim-down button was pressed four times
         conditions:
           - condition: trigger
-            id: dim-down-press-4x
+            id: brightness_down_press_4
         sequence: !input action_button_down_press4
 
       - alias: If the dim-down button was pressed five times
         conditions:
           - condition: trigger
-            id: dim-down-press-5x
+            id: brightness_down_press_5
         sequence: !input action_button_down_press5
 
       - alias: If the dim-down button is held
         conditions:
           - condition: trigger
-            id: dim-down-hold
+            id: brightness_down_hold
         sequence:
           - choose:
               - conditions: "{{ action_button_down_hold_repeat | bool }}"
@@ -605,37 +605,37 @@ actions:
       - alias: If the Hue button was pressed only once
         conditions:
           - condition: trigger
-            id: hue-press
+            id: hue_press
         sequence: !input action_button_hue_press1
 
       - alias: If the button was pressed twice
         conditions:
           - condition: trigger
-            id: hue-press-2x
+            id: hue_press_2
         sequence: !input action_button_hue_press2
 
       - alias: If the button was pressed three times
         conditions:
           - condition: trigger
-            id: hue-press-3x
+            id: hue_press_3
         sequence: !input action_button_hue_press3
 
       - alias: If the button was pressed four times
         conditions:
           - condition: trigger
-            id: hue-press-4x
+            id: hue_press_4
         sequence: !input action_button_hue_press4
 
       - alias: If the button was pressed five times
         conditions:
           - condition: trigger
-            id: hue-press-5x
+            id: hue_press_5
         sequence: !input action_button_hue_press5
 
       - alias: If the button is held
         conditions:
           - condition: trigger
-            id: hue-hold
+            id: hue_hold
         sequence:
           - choose:
               - conditions: "{{ action_button_hue_hold_repeat | bool }}"
