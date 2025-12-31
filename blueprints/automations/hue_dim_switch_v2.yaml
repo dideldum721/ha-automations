@@ -1,0 +1,591 @@
+blueprint:
+  name: "Controller: Hue Dim Switch V2"
+  domain: automation
+  description: >-
+    Controller automation for actions triggered by a Philips Hue dimmer switch
+    v2 (RWL022) via ZHA.
+  input:
+    # Invalid blueprint: extra keys not allowed 
+    # @ data['blueprint']['input']['controller']['Name']. Got '(Required) Remote device'
+     # extra keys not allowed @ data['blueprint']['input']['controller']['selector']['filter'][0]['manufacturer"']. Got None
+    controller:
+      name: "(Required) Remote device"
+      description: The Hue dimmer switch remote used in this automation.
+      selector:
+        device:
+          filter:
+            - integration: zha
+              manufacturer: "Signify Netherlands B.V."
+              model: "RWL022"
+    repetition_on_hold:
+      name: Repetition on hold
+      description: >-
+        Maximum number of repetitions if a button is held.
+      default: 100
+      selector:
+        number:
+          min: 0
+          max: 1000
+          mode: box
+    repetition_delay_ms:
+      name: Repetition delay
+      description: Time in ms between two executions when a button is held.
+      default: 100
+      selector:
+        number:
+          min: 1
+          max: 1000
+          unit_of_measurement: ms
+          mode: box
+    
+    action_button_power_press1:
+      name: "Power button press"
+      description: Action when power button is pressed once
+      default: []
+      selector:
+        action:
+    action_button_power_press2:
+      name: "Power button press (2x)"
+      description: Action when power button is pressed twice
+      default: []
+      selector:
+        action:
+    action_button_power_press3:
+      name: "Power button press (3x)"
+      description: Action when power button is pressed 3 times
+      default: []
+      selector:
+        action:
+    action_button_power_press4:
+      name: "Power button press (4x)"
+      description: Action when power button is pressed 4 times
+      default: []
+      selector:
+        action:
+    action_button_power_press5:
+      name: "Power button press (5x)"
+      description: Action when power button is pressed 5 times
+      default: []
+      selector:
+        action:
+    action_button_power_hold:
+      name: "Power button hold"
+      description: Action when power button is help
+      default: []
+      selector:
+        action:
+    action_button_power_hold_repeat:
+      name: "Power button hold repeat"
+      description: Should the action be repeated, while the power button is held?
+      default: true
+      selector:
+        boolean:
+
+    action_button_up_press1:
+      name: "Up button press"
+      description: Action when "dim-up" button is pressed once
+      default: []
+      selector:
+        action:
+    action_button_up_press2:
+      name: "Up button press (2x)"
+      description: Action when "dim up" is pressed twice
+      default: []
+      selector:
+        action:
+    action_button_up_press3:
+      name: "Up button press (3x)"
+      description: Action when "dim up" is pressed 3 times
+      default: []
+      selector:
+        action:
+    action_button_up_press4:
+      name: "Up button press (4x)"
+      description: Action when "dim up"  is pressed 4 times
+      default: []
+      selector:
+        action:
+    action_button_up_press5:
+      name: "Up button press (5x)"
+      description: Action when "dim up" is pressed 5 times
+      default: []
+      selector:
+        action:
+    action_button_up_hold:
+      name: "Up button hold"
+      description: Action when "dim up" is held
+      default: []
+      selector:
+        action:
+    action_button_up_hold_repeat:
+      name: "Up button hold repeat"
+      description: Should the action be repeated, while "dim up" is held?
+      default: true
+      selector:
+        boolean:
+  
+    action_button_down_press1:
+      name: "Down button press"
+      description: Action when "dim-down" button is pressed once
+      default: []
+      selector:
+        action:
+    action_button_down_press2:
+      name: "Down button press (2x)"
+      description: Action when "dim down" is pressed twice
+      default: []
+      selector:
+        action:
+    action_button_down_press3:
+      name: "Down button press (3x)"
+      description: Action when "dim down" is pressed 3 times
+      default: []
+      selector:
+        action:
+    action_button_down_press4:
+      name: "Down button press (4x)"
+      description: Action when "dim down" is pressed 4 times
+      default: []
+      selector:
+        action:
+    action_button_down_press5:
+      name: "Down button press (5x)"
+      description: Action when "dim down" is pressed 5 times
+      default: []
+      selector:
+        action:
+    action_button_down_hold:
+      name: "Down button hold"
+      description: Action when "dim down" is held
+      default: []
+      selector:
+        action:
+    action_button_down_hold_repeat:
+      name: "Down button hold repeat"
+      description: Should the action be repeated, while "dim down" is held?
+      default: true
+      selector:
+        boolean:
+    
+    action_button_hue_press1:
+      name: "Hue button press"
+      description: Action when "Hue" button is pressed once
+      default: []
+      selector:
+        action:
+    action_button_hue_press2:
+      name: "Hue button press (2x)"
+      description: Action when "Hue" is pressed twice
+      default: []
+      selector:
+        action:
+    action_button_hue_press3:
+      name: "Hue button press (3x)"
+      description: Action when "Hue" is pressed 3 times
+      default: []
+      selector:
+        action:
+    action_button_hue_press4:
+      name: "Hue button press (4x)"
+      description: Action when "Hue" is pressed 4 times
+      default: []
+      selector:
+        action:
+    action_button_hue_press5:
+      name: "Hue button press (5x)"
+      description: Action when "Hue" is pressed 5 times
+      default: []
+      selector:
+        action:
+    action_button_hue_hold:
+      name: "Hue button hold"
+      description: Action when "Hue" is held
+      default: []
+      selector:
+        action:
+    action_button_hue_hold_repeat:
+      name: "Hue button hold repeat"
+      description: Should the action be repeated, while "Hue" is held?
+      default: true
+      selector:
+        boolean:
+
+variables:
+  repetition_on_hold: !input repetition_on_hold
+  repetition_delay_ms: !input repetition_delay_ms
+  action_button_power_hold_repeat: !input action_button_power_hold_repeat
+  action_button_up_hold_repeat: !input action_button_up_hold_repeat
+  action_button_down_hold_repeat: !input action_button_down_hold_repeat
+  action_button_hue_hold_repeat: !input action_button_hue_hold_repeat
+
+triggers:
+  - alias: Press on/off button pressed one time
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_short_press
+    subtype: turn_on
+  - alias: On/off button released after a short press
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_short_release
+    subtype: turn_on
+  - alias: Release on/off button after holding it
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_long_press
+    subtype: turn_on
+  - alias: Hold on/off button
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_long_release
+    subtype: turn_on
+  - alias: On/off button pressed two times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_double_press
+    subtype: turn_on
+  - alias: On/off button pressed three times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_triple_press
+    subtype: turn_on
+  - alias: On/off button pressed four times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_quadruple_press
+    subtype: turn_on
+  - alias: On/off button pressed five times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_quintuple_press
+    subtype: turn_on
+  - alias: Up button pressed one time
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_short_press
+    subtype: dim_up
+  - alias: Up button released after a short press
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_short_release
+    subtype: dim_up
+  - alias: Up button held
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_long_press
+    subtype: dim_up
+  - alias: Up button released after holding it
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_long_release
+    subtype: dim_up
+  - alias: Up button pressed two times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_double_press
+    subtype: dim_up
+  - alias: Up button pressed three times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_triple_press
+    subtype: dim_up
+  - alias: Up button pressed four times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_quadruple_press
+    subtype: dim_up
+  - alias: Up button pressed five times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_quintuple_press
+    subtype: dim_up
+  - alias: Down button pressed one time
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_short_press
+    subtype: dim_down
+  - alias: Down button released after a short press
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_short_release
+    subtype: dim_down
+  - alias: Down button held
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_long_press
+    subtype: dim_down
+  - alias: Down button released after holding it
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_long_release
+    subtype: dim_down
+  - alias: Down button pressed two times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_double_press
+    subtype: dim_down
+  - alias: Down button pressed three times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_triple_press
+    subtype: dim_down
+  - alias: Down button pressed four times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_quadruple_press
+    subtype: dim_down
+  - alias: Down button pressed five times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_quintuple_press
+    subtype: dim_down
+  - alias: Press HUE button one time
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_short_press
+    subtype: turn_off
+  - alias: HUE button released after short press
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_short_release
+    subtype: turn_off
+  - alias: HUE button held
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_long_press
+    subtype: turn_off
+  - alias: HUE button released after holding it
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_long_release
+    subtype: turn_off
+  - alias: HUE button pressed two times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_double_press
+    subtype: turn_off
+  - alias: HUE button pressed three times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_triple_press
+    subtype: turn_off
+  - alias: HUE button pressed four times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_quadruple_press
+    subtype: turn_off
+  - alias: HUE button pressed five times
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: remote_button_quintuple_press
+    subtype: turn_off
+  - alias: Remote went offline
+    trigger: device
+    device_id: !input controller
+    domain: zha
+    type: device_offline
+    subtype: device_offline
+
+conditions: []
+actions:
+  - alias: Set variables
+    variables:
+      command: "{{ trigger.event.data.command }}"
+      action: "{{ trigger.event.data.args.press_type }}"
+      button: "{{ trigger.event.data.args.button }}"
+      timestamp: "{{ trigger.event.time_fired }}"
+
+
+  - alias: Choose action based on pressed button
+    choose:
+      - alias: If the on/off button is pressed
+        conditions:
+          - condition: template
+            value_template: "{{ button == 'on' }}"
+        sequence:
+          - choose:
+              - alias: If the button was pressed only once
+                conditions: "{{ action == 'press' }}"
+                sequence: !input action_button_power_press1
+
+              - alias: If the button was pressed twice
+                conditions: "{{ action == 'double_press' }}"
+                sequence: !input action_button_power_press2
+
+              - alias: If the button was pressed three times
+                conditions: "{{ action == 'triple_press' }}"
+                sequence: !input action_button_power_press3
+
+              - alias: If the button was pressed four times
+                conditions: "{{ action_button_power_press4 }}"
+                sequence: !input action_button_power_press4
+
+              - alias: If the button was pressed five times
+                conditions: "{{ action == 'quintuple_press' }}"
+                sequence: !input action_button_power_press5
+
+              - alias: If the button is held
+                conditions: "{{ action == 'hold' }}"
+                sequence:
+                  - choose:
+                      - conditions: "{{ action_button_power_hold_repeat | bool }}"
+                        sequence:
+                          - repeat:
+                              count: "{{ repetition_on_hold | int }}"
+                              sequence:
+                                - sequence: !input action_button_power_hold
+                                - delay:
+                                    milliseconds: "{{ repetition_delay_ms | int }}"
+                    default: !input action_button_power_hold
+                        
+      - alias: If the up button is pressed
+        conditions:
+          - condition: template
+            value_template: "{{ button == 'up' }}"
+        sequence:
+          - choose:
+              - alias: If the button was pressed only once
+                conditions: "{{ action == 'press' }}"
+                sequence: !input action_button_up_press1
+
+              - alias: If the button was pressed twice
+                conditions: "{{ action == 'double_press' }}"
+                sequence: !input action_button_up_press2
+
+              - alias: If the button was pressed three times
+                conditions: "{{ action == 'triple_press' }}"
+                sequence: !input action_button_up_press3
+
+              - alias: If the button was pressed four times
+                conditions: "{{ action_button_power_press4 }}"
+                sequence: !input action_button_up_press4
+
+              - alias: If the button was pressed five times
+                conditions: "{{ action == 'quintuple_press' }}"
+                sequence: !input action_button_up_press5
+
+              - alias: If the button is held
+                conditions: "{{ action == 'hold' }}"
+                sequence:
+                  - choose:
+                      - conditions: "{{ action_button_up_hold_repeat | bool }}"
+                        sequence:
+                          - repeat:
+                              count: "{{ repetition_on_hold | int }}"
+                              sequence:
+                                - sequence: !input action_button_up_hold
+                                - delay:
+                                    milliseconds: "{{ repetition_delay_ms | int }}"
+                    default: !input action_button_up_hold
+                        
+      - alias: If the down button is pressed
+        conditions:
+          - condition: template
+            value_template: "{{ button == 'down' }}"
+        sequence:
+          - choose:
+              - alias: If the button was pressed only once
+                conditions: "{{ action == 'press' }}"
+                sequence: !input action_button_down_press1
+
+              - alias: If the button was pressed twice
+                conditions: "{{ action == 'double_press' }}"
+                sequence: !input action_button_down_press2
+
+              - alias: If the button was pressed three times
+                conditions: "{{ action == 'triple_press' }}"
+                sequence: !input action_button_down_press3
+
+              - alias: If the button was pressed four times
+                conditions: "{{ action_button_power_press4 }}"
+                sequence: !input action_button_down_press4
+
+              - alias: If the button was pressed five times
+                conditions: "{{ action == 'quintuple_press' }}"
+                sequence: !input action_button_down_press5
+
+              - alias: If the button is held
+                conditions: "{{ action == 'hold' }}"
+                sequence:
+                  - choose:
+                      - conditions: "{{ action_button_down_hold_repeat | bool }}"
+                        sequence:
+                          - repeat:
+                              count: "{{ repetition_on_hold | int }}"
+                              sequence:
+                                - sequence: !input action_button_down_hold
+                                - delay:
+                                    milliseconds: "{{ repetition_delay_ms | int }}"
+                    default: !input action_button_down_hold
+                        
+      - alias: If the HUE button is pressed
+        conditions:
+          - condition: template
+            value_template: "{{ button == 'off' }}"
+        sequence:
+          - choose:
+              - alias: If the button was pressed only once
+                conditions: "{{ action == 'press' }}"
+                sequence: !input action_button_hue_press1
+
+              - alias: If the button was pressed twice
+                conditions: "{{ action == 'double_press' }}"
+                sequence: !input action_button_hue_press2
+
+              - alias: If the button was pressed three times
+                conditions: "{{ action == 'triple_press' }}"
+                sequence: !input action_button_hue_press3
+
+              - alias: If the button was pressed four times
+                conditions: "{{ action_button_power_press4 }}"
+                sequence: !input action_button_hue_press4
+
+              - alias: If the button was pressed five times
+                conditions: "{{ action == 'quintuple_press' }}"
+                sequence: !input action_button_hue_press5
+
+              - alias: If the button is held
+                conditions: "{{ action == 'hold' }}"
+                sequence:
+                  - choose:
+                      - conditions: "{{ action_button_hue_hold_repeat | bool }}"
+                        sequence:
+                          - repeat:
+                              count: "{{ repetition_on_hold | int }}"
+                              sequence:
+                                - sequence: !input action_button_hue_hold
+                                - delay:
+                                    milliseconds: "{{ repetition_delay_ms | int }}"
+                    default: !input action_button_hue_hold
