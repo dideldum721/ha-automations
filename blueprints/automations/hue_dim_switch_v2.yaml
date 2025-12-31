@@ -230,7 +230,7 @@ triggers:
     trigger: device
     device_id: !input controller
     domain: zha
-    type: remote_button_long_press
+    type: remote_button_long_release
     subtype: turn_on
 
   - id: power-hold
@@ -238,7 +238,7 @@ triggers:
     trigger: device
     device_id: !input controller
     domain: zha
-    type: remote_button_long_release
+    type: remote_button_long_press
     subtype: turn_on
 
   - id: power-press-2x
