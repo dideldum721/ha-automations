@@ -210,6 +210,7 @@ blueprint:
       selector:
         boolean:
 
+mode: restart
 variables:
   repetition_on_hold: !input repetition_on_hold
   repetition_delay_ms: !input repetition_delay_ms
